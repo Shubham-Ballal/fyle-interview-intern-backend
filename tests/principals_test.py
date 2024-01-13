@@ -28,6 +28,25 @@ def test_grade_assignment_draft_assignment(client, h_principal):
     )
 
     assert response.status_code == 400
+    
+# def test_grade_assignment_draft_assignment(client, h_principal):
+#     """
+#     failure case: If an assignment is in Draft state, it cannot be graded by principal
+#     """
+#     # Assuming assignment with ID 6 is in Draft state
+#     response = client.post(
+#         '/principal/assignments/grade',
+#         json={
+#             'id': 6,
+#             'grade': GradeEnum.A.value
+#         },
+#         headers=h_principal
+#     )
+
+#     assert response.status_code == 400
+#     assert response.json['error'] == 'FyleError'
+#     assert response.json['message'] == 'Only submitted assignments can be graded by the principal'
+
 
 
 def test_grade_assignment(client, h_principal):

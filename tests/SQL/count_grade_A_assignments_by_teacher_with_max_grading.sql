@@ -1,6 +1,6 @@
 -- Write query to find the number of grade A's given by the teacher who has graded the most assignments
 
-WWITH GradingCounts AS (
+WITH GradingCounts AS (
     SELECT
         teacher_id,
         COUNT(*) AS total_assignments,

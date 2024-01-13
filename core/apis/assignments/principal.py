@@ -18,6 +18,15 @@ def list_assignments(p):
     return APIResponse.respond(data=principal_assignments_dump)
 
 
+@principal_assignments_resources.route('/teachers', methods=['GET'], strict_slashes=False)
+@decorators.authenticate_principal
+def list_teachers(p):
+    """Returns list of all the teachers"""
+    teacher_list = Teacher.get_all_teachers()
+    teacher_list_dump = TeacherSchema().dump(teacher_list, many=True)
+    return APIResponse.respond(data=teacher_list_dump)
+
+
 @principal_assignments_resources.route('/assignments/grade', methods=['POST'], strict_slashes=False)
 @decorators.accept_payload
 @decorators.authenticate_principal
