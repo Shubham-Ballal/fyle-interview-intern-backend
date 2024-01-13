@@ -11,7 +11,7 @@ COPY . /app
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 # Expose the port gunicorn will run on
-EXPOSE 7755
+EXPOSE 8000
 
 # Run the run.sh script
 CMD ["bash", "run.sh"]
